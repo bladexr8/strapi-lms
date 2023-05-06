@@ -34,7 +34,7 @@
       "type": "string"
     },
     "contents": {
-      "type": "string"
+      "type": "text"
     },
     "classroom": {
       "type": "relation",
@@ -43,11 +43,16 @@
       "inversedBy": "tutorials"
     },
     "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "summary": {
+      "type": "text",
+      "maxLength": 200
     }
   }
 }
