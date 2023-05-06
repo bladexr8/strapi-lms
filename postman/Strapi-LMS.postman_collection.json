@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "1a0396bc-bcd1-4153-91a3-56e67ee0deb1",
+		"name": "Strapi-LMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5627732"
+	},
+	"item": [
+		{
+			"name": "Get Classrooms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1337/api/classrooms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"classrooms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Classroom",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"name\": \"Test Delete\",\n        \"description\": \"Test Delete Classroom\",\n        \"maxStudents\": 15\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1337/api/classrooms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"classrooms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Classroom",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1337/api/classrooms/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"classrooms",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Classroom",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"name\": \"Strapi Advanced\",\n        \"description\": \"Advanced concepts of Strapi for advanced developers\",\n        \"maxStudents\": 15\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1337/api/classrooms/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"classrooms",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Classroom",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1337/api/classrooms/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"classrooms",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
