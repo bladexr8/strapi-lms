@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_info_developers",
+  "info": {
+    "displayName": "developer"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "github": {
+      "type": "string"
+    }
+  }
+}
