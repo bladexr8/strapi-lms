@@ -1,3 +1,6 @@
+/**
+ * Custom Routes for Classroom Resource
+ */
 module.exports = {
     routes: [
         {
@@ -8,5 +11,13 @@ module.exports = {
                 auth: false,
             },
         },
+        /*{
+            method: 'POST',
+            path: '/classrooms/seed',
+            handler: 'classroom.seed',
+            config: {
+                auth: false,
+            },
+        }*/
     ],
 };
