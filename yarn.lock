@@ -1921,7 +1921,7 @@
     reselect "^4.1.7"
     yup "^0.32.9"
 
-"@strapi/plugin-documentation@4.10.2":
+"@strapi/plugin-documentation@^4.10.2":
   version "4.10.2"
   resolved "https://registry.yarnpkg.com/@strapi/plugin-documentation/-/plugin-documentation-4.10.2.tgz#e782bd4fd0375d88bef7dad207b206e90d97cf21"
   integrity sha512-R/xU0mgUL+KCssTwyukN31MZYoxGwkTyE9G7UffV3+2HbAc4dyWLiXfJAmMz1aUtF8/MibFNDB40gvcyoVQOtg==
