@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "1a0396bc-bcd1-4153-91a3-56e67ee0deb1",
+		"_postman_id": "e3763fd5-17b2-4124-9590-d54ee7e6cc30",
 		"name": "Strapi-LMS",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "5627732"
+		"_exporter_id": "19556726"
 	},
 	"item": [
 		{
@@ -33,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"data\": {\n        \"name\": \"Test Delete\",\n        \"description\": \"Test Delete Classroom\",\n        \"maxStudents\": 15\n    }\n}",
+					"raw": "{\n    \"data\": {\n        \"name\": \"Test Permissions Classroom\",\n        \"description\": \"Test Permissions Classroom\",\n        \"maxStudents\": 15\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -185,11 +185,21 @@
 		{
 			"name": "Create Tutorial",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjgzNDU3MjMxLCJleHAiOjE2ODQwNjIwMzF9.cK70wDD0s_Ouj2YKq-XaCCSsY8J6-HniqE2cNN60M4M",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"data\": {\n        \"title\": \"Content types in Strapi\",\n        \"slug\": \"content-types-in-strapi\",\n        \"type\": \"text\",\n        \"contents\": \"Content types in Strapi allows us to define the entities that make up the API\",\n        \"classroom\": 1\n    }\n}",
+					"raw": "{\n    \"data\": {\n        \"title\": \"Security in Strapi\",\n        \"slug\": \"security-in-strapi\",\n        \"type\": \"text\",\n        \"contents\": \"Security in Strapi allows us to authenticate and authorise users against the API\",\n        \"classroom\": 1\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -252,6 +262,264 @@
 							"key": "populate",
 							"value": "*"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Classroom Tutorials",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1337/api/classrooms/1/tutorials",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"classrooms",
+						"1",
+						"tutorials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Classroom Tutorials (query)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1337/api/classrooms/1/tutorials?publisher=packt&name=Strapi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"classrooms",
+						"1",
+						"tutorials"
+					],
+					"query": [
+						{
+							"key": "publisher",
+							"value": "packt"
+						},
+						{
+							"key": "name",
+							"value": "Strapi"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Seed Classrooms Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1337/api/classrooms/seed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"classrooms",
+						"seed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Classrooms with Sorting",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1337/api/classrooms?sort=createdAt:desc,maxStudents:asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"classrooms"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "createdAt:desc,maxStudents:asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Classrooms with Filtering",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1337/api/classrooms?filters[name][$contains]=classroom_3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"classrooms"
+					],
+					"query": [
+						{
+							"key": "filters[name][$contains]",
+							"value": "classroom_3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Classrooms with Pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1337/api/classrooms?pagination[pageSize]=10&pagination[page]=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"classrooms"
+					],
+					"query": [
+						{
+							"key": "pagination[pageSize]",
+							"value": "10"
+						},
+						{
+							"key": "pagination[page]",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"educator2\",\n    \"email\": \"educator2@strapi.com\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1337/api/auth/local/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"auth",
+						"local",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"identifier\": \"educator2@strapi.com\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1337/api/auth/local",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"auth",
+						"local"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Tutorial",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjgzNDU3MjMxLCJleHAiOjE2ODQwNjIwMzF9.cK70wDD0s_Ouj2YKq-XaCCSsY8J6-HniqE2cNN60M4M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1337/api/tutorials/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"tutorials",
+						"9"
 					]
 				}
 			},
